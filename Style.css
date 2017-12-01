@@ -1,0 +1,48 @@
+
+/* style all elements in the <body> */
+body {
+    font-family: sans-serif;
+    vertical-align: top;
+    background-color: lightseagreen;
+}
+
+#monthdiv {
+    text-align:center ;
+}
+/* style all the buttons in a page */
+button {
+    width: 200px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+
+}
+button:hover{
+    color:black;
+    background-color: aquamarine;
+}
+
+
+#data {
+    width: 100%;
+    text-align: center;
+
+}
+#month{
+    color: #4454ff;
+    font-size: 17px;
+    text-weight: bold;
+}
+
+#day {
+    color: #4454ff;
+    font-size: 14px;
+    text-weight: bold;
+}
+#year{
+    color: #4454ff;
+    font-size: 10px;
+    text-weight: bold;
+}
