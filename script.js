@@ -11,9 +11,8 @@
  , "You are determined, dominant, persevering, practical, and willful. Easily accepts obligation and responsibility. You live by a moral code which is often traditional and conventional. You are a skilled strategic thinker, able to easily problem solve."
  , "You are serious, insightful, duplicitous. You are an original thinker, able to deftly move around problems with unorthodox solutions. You are idealistic, and prefers equal opportunity for all. You tend to be the defender of underdogs."
  , "You have depth, imagination, but are reactive and indecisive. You are deeply intuitive, often lives and thinks in a different world than others. You are a dreamer on multiple levels (in goals and in imagination). You find difficulty facing reality. You are Highly artistic and easily expressive. "]
-var chinazo = ["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
-
-function horoscope() {
+var chinazo = [" You were born in the year of the Rat","You were born in the year of the Ox","You were born in the year of the Tiger","You were born in the year of the Rabbit" ,"You were born in the year of the Dragon","You were born in the year of the Snake","You were born in the year of the Horse","You were born in the year of the Goat","You were born in the year of the Monkey","You were born in the year of the Rooster","You were born in the year of the Dog","You were born in the year of the Pig"];
+     function horoscope() {
     var day = parseInt(document.getElementById("day").value);
     var month = parseInt(document.getElementById("month").value);
     console.log(month);
@@ -22,57 +21,60 @@ function horoscope() {
     var sign = findHoroscope(month,day);
     console.log(sign);
     console.log(chinazodiac(year));
-    document.getElementById("signDiv").innerHTML = signs[sign];
+    document.getElementById("signDiv").innerHTML = sign;
+
 
     var year = parseInt(document.getElementById("year").value);
     var china = chinazodiac(year);
     console.log(china);
     document.getElementById("zodiacDiv").innerHTML = chinazo[china];
 
-    document.getElementById("messageDiv").innerHTML = text[sign];
+    document.getElementById("messageDiv").innerHTML = text[signs.indexOf(sign)];
+    document.getElementById("getimage").innerHTML = "<img src='img/" + sign + ".png'>";
 
 }
 
 
- function findHoroscope(month, day  ) {
+ function findHoroscope(month, day) {
     if (month == 3 && day >= 21 || month == 4 && day <= 19) {
-        return 0;
+        return signs[0];
     }
     if (month == 4 && day >= 20 || month == 5 && day <= 20) {
-        return 1;
+        return signs[1];
     }
     if (month == 5 && day >= 21 || month == 6 && day <= 20) {
-        return 2;
+        return signs[2];
     }
     if (month == 6 && day >= 21 || month == 7 && day <= 22) {
-        return 3;
+        return signs[3];
     }
     if (month == 7 && day >= 23 || month == 8 && day <= 22) {
-        return 4;
+        return signs[4];
     }
     if (month == 8 && day >= 23 || month == 9 && day <= 22) {
-        return 5;
+        return signs[5];
     }
     if (month == 9 && day >= 23 || month == 10 && day <= 22) {
-        return 6;
+        return signs[6];
     }
     if (month == 10 && day >= 23 || month == 11 && day <= 21) {
-        return 7;
+        return signs[7];
     }
     if (month == 11 && day >= 22 || month == 12 && day <= 21) {
-        return 8;
+        return signs[8];
     }
     if (month == 12 && day >= 23 || month == 1 && day <= 19) {
-        return 9;
+        return signs[9];
     }
     if (month == 1 && day >= 20 || month == 2 && day <= 18) {
-        return 10;
+        return signs[10];
     }
     if (month == 2 && day >= 19 || month == 3 && day <= 20) {
-        return 11;
+        return signs[11];
     }
 }
  function chinazodiac(year) {
+    console.log(year);
      if (year == 1960 || year == 1972 || year == 1984 || year == 1996 || year == 2008) {
          return 0;
      }
@@ -80,34 +82,42 @@ function horoscope() {
          return 1;
      }
      if (year == 1962 || year == 1974 || year == 1986 || year == 1998 || year == 2010) {
-         return 3;
+         return 2;
      }
      if (year == 1963 || year == 1975 || year == 1987 || year == 1999 || year == 2011) {
-         return 4;
+         return 3;
      }
      if (year == 1964 || year == 1976 || year == 1988 || year == 2000 || year == 2012) {
-         return 5;
+         return 4;
      }
      if (year == 1965 || year == 1977 || year == 1989 || year == 2001 || year == 2013) {
-         return 6;
+         return 5;
      }
      if (year == 1966 || year == 1978 || year == 1990 || year == 2002 || year == 2014) {
-         return 7;
+         return 6;
      }
      if (year == 1967 || year == 1979 || year == 1991 || year == 2003 || year == 2015) {
-         return 8;
+         return 7;
      }
      if (year == 1968 || year == 1980 || year == 1992 || year == 2004 || year == 2016) {
-         return 9;
+         return 8;
      }
      if (year == 1969 || year == 1981 || year == 1993 || year == 2005 || year == 2017) {
-         return 10;
+         return 9;
      }
      if (year == 1970 || year == 1982 || year == 1994 || year == 2006) {
-         return 11;
+         return 10;
      }
      if (year == 1971 || year == 1983 || year == 1995 || year == 2007) {
-         return 12;
+         return 11;
      }
  }
 
+function monthdayz(month){
+         var result = "";
+         var daysinmonths = [0,31,28,31,30,31,30,31,31,30,31,30,31]
+        for(i=1; i<=daysinmonths[month];i++){
+            result += "<option value =" + i + ">" + i + "</option>";
+        }
+document.getElementById("day").innerHTML = result;
+     }
